@@ -18,7 +18,7 @@ export function Logo({ className, onClick }: LogoProps) {
         aria-hidden="true"
       >
         <img
-          src="/images/logo.webp"
+          src="./images/logo.webp"
           alt=""
           className="h-9 w-9 object-contain sm:h-11 sm:w-11 rounded-full"
           loading="eager"

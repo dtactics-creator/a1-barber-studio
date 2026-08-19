@@ -186,14 +186,14 @@ export const benefits = [
 ];
 
 export const gallery = [
-  { src: "/images/gallery-fade.jpg", alt: "Precision fade being finished in the chair" },
-  { src: "/images/gallery-beard.jpg", alt: "Beard trim with scissors and comb" },
-  { src: "/images/gallery-scissors.jpg", alt: "Scissor-cut texture work on longer hair" },
-  { src: "/images/gallery-studio.jpg", alt: "A1 Barber Studio interior with leather chairs and warm light" },
-  { src: "/images/gallery-lineup.jpg", alt: "Sharp lineup along the hairline" },
-  { src: "/images/gallery-finish.jpg", alt: "Finished men’s cut and beard" },
-  { src: "/images/gallery-tools.jpg", alt: "Premium clippers, scissors, and straight razor" },
-  { src: "/images/about.jpg", alt: "Barber consulting with a client in the studio" },
+  { src: "./images/gallery-fade.jpg", alt: "Precision fade being finished in the chair" },
+  { src: "./images/gallery-beard.jpg", alt: "Beard trim with scissors and comb" },
+  { src: "./images/gallery-scissors.jpg", alt: "Scissor-cut texture work on longer hair" },
+  { src: "./images/gallery-studio.jpg", alt: "A1 Barber Studio interior with leather chairs and warm light" },
+  { src: "./images/gallery-lineup.jpg", alt: "Sharp lineup along the hairline" },
+  { src: "./images/gallery-finish.jpg", alt: "Finished men’s cut and beard" },
+  { src: "./images/gallery-tools.jpg", alt: "Premium clippers, scissors, and straight razor" },
+  { src: "./images/about.jpg", alt: "Barber consulting with a client in the studio" },
 ];
 
 export const faqs = [

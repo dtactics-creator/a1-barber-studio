@@ -12,7 +12,7 @@ export function About() {
       <div className="mx-auto grid max-w-[1440px] items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <div className={cn("reveal img-zoom relative min-h-[320px] border border-line sm:min-h-[420px] lg:min-h-[480px]", visible && "visible")}>
           <img
-            src="/images/about.jpg"
+            src="./images/about.jpg"
             alt="Consultation in the A1 Barber Studio chair"
             className="absolute inset-0 h-full w-full object-cover grayscale-[0.25]"
           />

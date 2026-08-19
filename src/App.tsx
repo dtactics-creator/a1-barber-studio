@@ -19,7 +19,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "HairSalon",
   name: business.name,
-  image: "/images/hero.jpg",
+  image: "./images/hero.jpg",
   telephone: business.phone,
   email: business.email,
   address: {

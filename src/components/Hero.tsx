@@ -49,7 +49,7 @@ export function Hero() {
           <div className="relative hidden lg:block">
             <div className="hero-media img-zoom relative h-full min-h-[620px] border border-line">
               <img
-                src="/images/hero.jpg"
+                src="./images/hero.jpg"
                 alt="Barber giving a precision haircut in a dark, warm-lit Vancouver studio"
                 className="absolute inset-0 h-full w-full object-cover object-[center_22%]"
               />
@@ -65,7 +65,7 @@ export function Hero() {
 
         <div className="hero-media img-zoom relative -mx-4 mt-2 h-[42vh] min-h-[280px] overflow-hidden border-y border-line sm:-mx-5 sm:h-[46vh] sm:min-h-[320px] lg:hidden">
           <img
-            src="/images/hero.jpg"
+            src="./images/hero.jpg"
             alt="Barber giving a precision haircut in a dark, warm-lit Vancouver studio"
             className="h-full w-full object-cover object-[center_22%]"
           />
