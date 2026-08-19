@@ -8,7 +8,7 @@ export function Testimonials() {
   const [featured, ...rest] = reviews;
 
   return (
-    <section id="reviews" ref={ref} className="bg-ink px-5 py-24 md:px-8 md:py-32">
+    <section id="reviews" ref={ref} className="bg-ink px-4 py-16 sm:px-5 sm:py-20 md:px-8 md:py-32">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
@@ -29,18 +29,18 @@ export function Testimonials() {
         <div className="mt-14 grid gap-4 lg:grid-cols-2">
           <article
             className={cn(
-              "reveal relative flex flex-col border border-line bg-ink-2 p-8 md:p-12",
+              "reveal relative flex flex-col border border-line bg-ink-2 p-5 sm:p-8 md:p-12",
               visible && "visible",
             )}
           >
             <span
-              className="pointer-events-none absolute top-4 left-6 font-display text-[8rem] leading-none text-white/6 select-none"
+              className="pointer-events-none absolute top-2 left-4 font-display text-[5rem] leading-none text-white/6 select-none sm:top-4 sm:left-6 sm:text-[8rem]"
               aria-hidden="true"
             >
               “
             </span>
             <p className="text-[0.62rem] tracking-[0.24em] text-silver uppercase">{featured.source} review</p>
-            <blockquote className="mt-6 flex-1 font-display text-[1.6rem] leading-snug font-medium text-white md:text-[2rem]">
+            <blockquote className="mt-5 flex-1 font-display text-xl leading-snug font-medium text-white sm:mt-6 sm:text-[1.6rem] md:text-[2rem]">
               “{featured.text}”
             </blockquote>
             <footer className="mt-8 flex items-center gap-3">
@@ -54,7 +54,7 @@ export function Testimonials() {
               <article
                 key={review.name}
                 className={cn(
-                  "reveal flex flex-col border border-line bg-ink-2/70 p-7 transition-colors hover:border-line-strong",
+                  "reveal flex flex-col border border-line bg-ink-2/70 p-5 transition-colors hover:border-line-strong sm:p-7",
                   visible && "visible",
                   `delay-${index + 1}`,
                 )}

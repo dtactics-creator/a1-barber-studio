@@ -127,7 +127,7 @@ export function Booking({ intent }: { intent: BookingIntent }) {
   };
 
   return (
-    <section id="book" ref={ref} className="relative overflow-hidden border-y border-line bg-ink-2 px-5 py-24 md:px-8 md:py-32">
+    <section id="book" ref={ref} className="relative overflow-hidden border-y border-line bg-ink-2 px-4 py-16 sm:px-5 sm:py-20 md:px-8 md:py-32">
       <div
         className="outline-text pointer-events-none absolute top-6 right-0 font-display text-[26vw] leading-none font-semibold select-none"
         aria-hidden="true"
@@ -142,7 +142,7 @@ export function Booking({ intent }: { intent: BookingIntent }) {
             title="Reserve your chair."
             copy="Service, barber, date, and time — all right here. No redirects, no phone tag."
           />
-          <p className="max-w-xs border-l border-line-strong pl-5 text-sm leading-relaxed text-dim">
+          <p className="max-w-xs border-t border-line-strong pt-4 text-sm leading-relaxed text-dim sm:border-t-0 sm:border-l sm:pt-0 sm:pl-5">
             Prefer to talk it through? Call{" "}
             <a href={business.phoneHref} className="text-silver-2 underline-offset-4 hover:underline">
               {business.phone}
@@ -151,24 +151,24 @@ export function Booking({ intent }: { intent: BookingIntent }) {
           </p>
         </div>
 
-        <div className={cn("reveal mt-14 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]", visible && "visible")}>
+        <div className={cn("reveal mt-10 grid gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-[1.15fr_0.85fr]", visible && "visible")}>
           {/* Flow panel */}
-          <div className="min-w-0 border border-line bg-ink p-6 md:p-10">
+          <div id="book-form" className="min-w-0 scroll-mt-24 border border-line bg-ink p-4 sm:p-6 md:p-10">
             {step !== "done" ? (
               <>
-                <ol className="flex flex-wrap items-center gap-2" aria-label="Booking progress">
+                <ol className="flex items-center gap-1.5 sm:flex-wrap sm:gap-2" aria-label="Booking progress">
                   {STEPS.map((label, index) => {
                     const num = index + 1;
                     const isActive = step === num;
                     const isDone = step > num;
                     return (
-                      <li key={label} className="flex items-center gap-2">
+                      <li key={label} className="flex flex-1 items-center gap-1.5 sm:flex-initial sm:gap-2">
                         <button
                           type="button"
                           onClick={() => isDone && setStep(num as Step)}
                           disabled={!isDone && !isActive}
                           className={cn(
-                            "flex items-center gap-2 border px-3 py-2 text-[0.62rem] font-semibold tracking-[0.2em] uppercase transition-colors",
+                            "flex w-full items-center justify-center gap-2 border px-2 py-2 text-[0.6rem] font-semibold tracking-[0.2em] uppercase transition-colors sm:w-auto sm:px-3 sm:text-[0.62rem]",
                             isActive
                               ? "border-silver bg-white text-ink"
                               : isDone
@@ -178,7 +178,7 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                           aria-current={isActive ? "step" : undefined}
                         >
                           <span>{isDone ? "✓" : String(index + 1).padStart(2, "0")}</span>
-                          {label}
+                          <span className="hidden sm:inline">{label}</span>
                         </button>
                         {index < STEPS.length - 1 ? (
                           <span className="hidden h-px w-6 bg-edge sm:block" aria-hidden="true" />
@@ -187,8 +187,11 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                     );
                   })}
                 </ol>
+                <p className="mt-3 text-[0.62rem] tracking-[0.2em] text-dim uppercase sm:hidden">
+                  Step {step} of {STEPS.length} · {STEPS[step - 1]}
+                </p>
 
-                <div key={step} className="step-panel mt-8">
+                <div key={step} className="step-panel mt-6 sm:mt-8">
                   {step === 1 ? (
                     <div className="grid gap-3 sm:grid-cols-2" role="group" aria-label="Choose a service">
                       {services.map((s) => {
@@ -200,15 +203,17 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                             aria-pressed={selected}
                             onClick={() => setServiceId(s.id)}
                             className={cn(
-                              "flex flex-col border p-5 text-left transition-all duration-300",
+                              "flex min-w-0 flex-col border p-4 text-left transition-all duration-300 sm:p-5",
                               selected
                                 ? "border-silver bg-white/[0.07]"
                                 : "border-line bg-ink-2 hover:border-line-strong hover:bg-ink-3",
                             )}
                           >
-                            <span className="flex w-full items-baseline justify-between gap-3">
-                              <span className="font-display text-xl text-white md:text-2xl">{s.name}</span>
-                              <span className="silver-text font-display text-xl">{s.price}</span>
+                            <span className="flex w-full flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                              <span className="min-w-0 font-display text-lg leading-tight text-white sm:text-xl md:text-2xl">
+                                {s.name}
+                              </span>
+                              <span className="silver-text shrink-0 font-display text-lg sm:text-xl">{s.price}</span>
                             </span>
                             <span className="mt-2 text-[0.62rem] tracking-[0.22em] text-dim uppercase">
                               {s.duration}
@@ -230,14 +235,14 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                             aria-pressed={selected}
                             onClick={() => setBarber(b)}
                             className={cn(
-                              "flex items-center justify-between border px-5 py-4 text-left transition-all duration-300",
+                              "flex min-w-0 items-center justify-between gap-3 border px-4 py-3.5 text-left transition-all duration-300 sm:px-5 sm:py-4",
                               selected
                                 ? "border-silver bg-white/[0.07]"
                                 : "border-line bg-ink-2 hover:border-line-strong hover:bg-ink-3",
                             )}
                           >
-                            <span>
-                              <span className="block font-display text-xl text-white">{b}</span>
+                            <span className="min-w-0">
+                              <span className="block font-display text-lg text-white sm:text-xl">{b}</span>
                               <span className="mt-1 block text-[0.62rem] tracking-[0.2em] text-dim uppercase">
                                 {b === FIRST_AVAILABLE ? "Earliest open chair" : "A1 Barber Studio"}
                               </span>
@@ -260,7 +265,7 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                   {step === 3 ? (
                     <div>
                       <p className="text-[0.62rem] tracking-[0.24em] text-dim uppercase">Choose a day</p>
-                      <div className="mt-3 flex gap-2 overflow-x-auto pb-2">
+                      <div className="mt-3 -mx-4 flex gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0 scrollbar-stylish">
                         {days.map((d) => {
                           const selected = dateISO === d.iso;
                           return (
@@ -270,16 +275,16 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                               aria-pressed={selected}
                               onClick={() => setDateISO(d.iso)}
                               className={cn(
-                                "flex w-[4.6rem] shrink-0 flex-col items-center border py-3 transition-all duration-300",
+                                "flex w-[4.1rem] shrink-0 flex-col items-center border px-1 py-2.5 transition-all duration-300 sm:w-[4.6rem] sm:py-3",
                                 selected
                                   ? "border-silver bg-white text-ink"
                                   : "border-line bg-ink-2 text-snow hover:border-line-strong",
                               )}
                             >
-                              <span className="text-[0.58rem] tracking-[0.18em] uppercase opacity-70">
+                              <span className="text-[0.55rem] tracking-[0.14em] uppercase opacity-70 sm:text-[0.58rem] sm:tracking-[0.18em]">
                                 {d.label}
                               </span>
-                              <span className="mt-1 font-display text-2xl leading-none">{d.dayNum}</span>
+                              <span className="mt-1 font-display text-xl leading-none sm:text-2xl">{d.dayNum}</span>
                             </button>
                           );
                         })}
@@ -288,7 +293,7 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                       <p className="mt-6 text-[0.62rem] tracking-[0.24em] text-dim uppercase">
                         Available times · {formatDay(dateISO)}
                       </p>
-                      <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6" role="group" aria-label="Choose a time">
+                      <div className="mt-3 grid grid-cols-3 gap-1.5 sm:gap-2 md:grid-cols-4 lg:grid-cols-6" role="group" aria-label="Choose a time">
                         {timeSlots.map((t) => {
                           const taken = slotTaken(dateISO, t);
                           const past = slotInPast(dateISO, t);
@@ -302,7 +307,7 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                               aria-pressed={selected}
                               onClick={() => setTime(t)}
                               className={cn(
-                                "border py-2.5 text-sm transition-all duration-200",
+                                "border px-1 py-2.5 text-[0.72rem] transition-all duration-200 sm:py-3 sm:text-sm",
                                 disabled
                                   ? "cursor-not-allowed border-line text-edge line-through"
                                   : selected
@@ -365,12 +370,12 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                   ) : null}
                 </div>
 
-                <div className="mt-10 flex items-center justify-between gap-4 border-t border-line pt-6">
+                <div className="mt-8 flex flex-col-reverse gap-3 border-t border-line pt-5 sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:pt-6">
                   <button
                     type="button"
                     onClick={() => setStep((prev) => (prev !== "done" && prev > 1 ? ((prev - 1) as Step) : prev))}
                     className={cn(
-                      "text-[0.66rem] font-semibold tracking-[0.24em] uppercase transition-colors",
+                      "shrink-0 text-center text-[0.62rem] font-semibold tracking-[0.2em] uppercase transition-colors sm:text-left sm:text-[0.66rem] sm:tracking-[0.24em]",
                       step === 1 ? "cursor-default text-edge" : "text-mute hover:text-white",
                     )}
                     disabled={step === 1}
@@ -383,7 +388,7 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                       onClick={() => setStep((step + 1) as Step)}
                       disabled={!canContinue}
                       className={cn(
-                        "px-7 py-3.5 text-[0.68rem] font-semibold tracking-[0.24em] uppercase transition-all duration-300",
+                        "w-full px-5 py-3.5 text-[0.66rem] font-semibold tracking-[0.2em] uppercase transition-all duration-300 sm:w-auto sm:px-7 sm:py-3.5 sm:text-[0.68rem] sm:tracking-[0.24em]",
                         canContinue
                           ? "sheen bg-[linear-gradient(115deg,#f5f5f5,#cfcfcf_55%,#e4e4e4)] text-ink hover:brightness-110"
                           : "cursor-not-allowed bg-ink-3 text-edge",
@@ -395,7 +400,7 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                     <button
                       type="button"
                       onClick={submit}
-                      className="sheen bg-[linear-gradient(115deg,#f5f5f5,#cfcfcf_55%,#e4e4e4)] px-7 py-3.5 text-[0.68rem] font-semibold tracking-[0.24em] text-ink uppercase transition-all duration-300 hover:brightness-110"
+                      className="sheen w-full bg-[linear-gradient(115deg,#f5f5f5,#cfcfcf_55%,#e4e4e4)] px-5 py-3.5 text-[0.66rem] font-semibold tracking-[0.2em] text-ink uppercase transition-all duration-300 hover:brightness-110 sm:w-auto sm:px-7 sm:text-[0.68rem] sm:tracking-[0.24em]"
                     >
                       Request Appointment
                     </button>
@@ -403,23 +408,23 @@ export function Booking({ intent }: { intent: BookingIntent }) {
                 </div>
               </>
             ) : (
-              <div className="step-panel py-6 text-center md:py-12">
-                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-silver bg-white/[0.06]">
-                  <svg viewBox="0 0 24 24" className="h-7 w-7 text-silver-2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <div className="step-panel py-4 text-center sm:py-6 md:py-12">
+                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-silver bg-white/[0.06] sm:h-16 sm:w-16">
+                  <svg viewBox="0 0 24 24" className="h-6 w-6 text-silver-2 sm:h-7 sm:w-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
                 </span>
-                <h3 className="mt-6 font-display text-4xl text-white md:text-5xl">Request received.</h3>
-                <p className="mx-auto mt-4 max-w-md text-mute">
+                <h3 className="mt-5 font-display text-3xl text-white sm:mt-6 sm:text-4xl md:text-5xl">Request received.</h3>
+                <p className="mx-auto mt-4 max-w-md text-sm text-mute sm:text-base">
                   Your appointment request is in, {name.trim().split(" ")[0]}. Reference{" "}
-                  <span className="silver-text font-display text-xl">{refCode}</span>. Need to change
-                  anything? Call{" "}
+                  <span className="silver-text font-display text-lg sm:text-xl">{refCode}</span>. Need to
+                  change anything? Call{" "}
                   <a href={business.phoneHref} className="text-silver-2 underline-offset-4 hover:underline">
                     {business.phone}
                   </a>
                   .
                 </p>
-                <div className="mx-auto mt-8 max-w-md border border-line bg-ink-2/80 p-6 text-left">
+                <div className="mx-auto mt-6 max-w-md border border-line bg-ink-2/80 p-4 text-left sm:mt-8 sm:p-6">
                   <SummaryRow label="Service" value={service ? `${service.name} · ${service.price}` : "—"} />
                   <SummaryRow label="Barber" value={barber} />
                   <SummaryRow label="When" value={time ? `${formatDay(dateISO)} · ${formatTime(time)}` : "—"} />
@@ -438,11 +443,11 @@ export function Booking({ intent }: { intent: BookingIntent }) {
 
           {/* Summary rail */}
           <aside
-            className="h-fit border border-line bg-ink p-6 md:p-8 lg:sticky lg:top-28"
+            className="h-fit min-w-0 border border-line bg-ink p-5 sm:p-6 md:p-8 lg:sticky lg:top-28"
             aria-live="polite"
           >
             <p className="text-[0.62rem] tracking-[0.28em] text-silver uppercase">Your booking</p>
-            <div className="mt-6">
+            <div className="mt-5 sm:mt-6">
               <SummaryRow label="Service" value={service ? service.name : "Select a service"} />
               <SummaryRow label="Barber" value={barber} />
               <SummaryRow
@@ -452,11 +457,13 @@ export function Booking({ intent }: { intent: BookingIntent }) {
               <SummaryRow label="Time" value={time ? formatTime(time) : "—"} />
               <SummaryRow label="Duration" value={service?.duration ?? "—"} />
             </div>
-            <div className="mt-6 flex items-baseline justify-between border-t border-line pt-5">
+            <div className="mt-5 flex items-baseline justify-between border-t border-line pt-4 sm:mt-6 sm:pt-5">
               <span className="text-[0.62rem] tracking-[0.24em] text-dim uppercase">Total</span>
-              <span className="silver-text font-display text-4xl">{service ? service.price : "$—"}</span>
+              <span className="silver-text font-display text-3xl sm:text-4xl">
+                {service ? service.price : "$—"}
+              </span>
             </div>
-            <div className="mt-6 border border-line bg-ink-2/70 p-4">
+            <div className="mt-5 border border-line bg-ink-2/70 p-4 sm:mt-6">
               <p className="text-[0.6rem] tracking-[0.24em] text-silver uppercase">Studio</p>
               <p className="mt-2 text-sm text-snow/85">{business.address}</p>
               <p className="mt-1 text-sm text-mute">
@@ -475,9 +482,11 @@ export function Booking({ intent }: { intent: BookingIntent }) {
 
 function SummaryRow({ label, value, last }: { label: string; value: string; last?: boolean }) {
   return (
-    <div className={cn("flex items-baseline justify-between gap-6 py-3", !last && "border-b border-line")}>
-      <span className="text-[0.62rem] tracking-[0.24em] text-dim uppercase">{label}</span>
-      <span className="text-right text-sm text-snow">{value}</span>
+    <div className={cn("flex items-baseline justify-between gap-3 py-3 sm:gap-6", !last && "border-b border-line")}>
+      <span className="shrink-0 text-[0.6rem] tracking-[0.2em] text-dim uppercase sm:text-[0.62rem] sm:tracking-[0.24em]">
+        {label}
+      </span>
+      <span className="min-w-0 flex-1 text-right text-sm text-snow">{value}</span>
     </div>
   );
 }

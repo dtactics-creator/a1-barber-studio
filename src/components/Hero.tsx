@@ -5,20 +5,20 @@ export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden">
       <div
-        className="outline-text pointer-events-none absolute -top-16 -left-8 font-display text-[38vw] leading-none font-semibold tracking-tight select-none md:text-[24rem]"
+        className="outline-text pointer-events-none absolute -top-10 -left-4 font-display text-[clamp(7rem,34vw,24rem)] leading-none font-semibold tracking-tight select-none sm:-top-16 sm:-left-8"
         aria-hidden="true"
       >
         A1
       </div>
 
-      <div className="relative mx-auto grid max-w-[1440px] items-stretch px-5 pt-28 pb-0 md:px-8 md:pt-36">
+      <div className="relative mx-auto grid max-w-[1440px] items-stretch px-4 pt-24 pb-0 sm:px-5 sm:pt-28 md:px-8 md:pt-36">
         <div className="grid lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
-          <div className="hero-copy flex flex-col justify-center pb-14 lg:pb-24">
+          <div className="hero-copy flex flex-col justify-center pb-10 sm:pb-14 lg:pb-24">
             <p className="flex items-center gap-3 text-[0.66rem] font-semibold tracking-[0.42em] text-silver uppercase">
               <span className="h-px w-10 bg-silver/60" aria-hidden="true" />
               Gastown · Vancouver
             </p>
-            <h1 className="mt-7 font-display text-[clamp(3.2rem,8.6vw,7.6rem)] leading-[0.88] font-bold tracking-[-0.03em] text-white">
+            <h1 className="mt-6 font-display text-[clamp(2.6rem,10vw,7.6rem)] leading-[0.95] font-bold tracking-[-0.02em] text-white sm:mt-7 sm:leading-[0.88] sm:tracking-[-0.03em]">
               Precision
               <span className="block">grooming,</span>
               <span className="silver-text font-semibold">personalized style.</span>
@@ -63,7 +63,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hero-media img-zoom relative -mx-5 mt-2 h-[46vh] min-h-[320px] overflow-hidden border-y border-line lg:hidden">
+        <div className="hero-media img-zoom relative -mx-4 mt-2 h-[42vh] min-h-[280px] overflow-hidden border-y border-line sm:-mx-5 sm:h-[46vh] sm:min-h-[320px] lg:hidden">
           <img
             src="/images/hero.jpg"
             alt="Barber giving a precision haircut in a dark, warm-lit Vancouver studio"

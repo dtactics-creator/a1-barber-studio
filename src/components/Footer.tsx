@@ -9,7 +9,7 @@ type FooterProps = {
 export function Footer({ onSelectService }: FooterProps) {
   return (
     <footer className="border-t border-line bg-ink">
-      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-16 md:px-8 lg:grid-cols-[1.2fr_0.7fr_0.9fr_1fr]">
+      <div className="mx-auto grid max-w-[1440px] gap-10 px-4 py-12 sm:gap-12 sm:px-5 sm:py-16 md:px-8 lg:grid-cols-[1.2fr_0.7fr_0.9fr_1fr]">
         <div>
           <Logo />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-mute">
@@ -75,7 +75,7 @@ export function Footer({ onSelectService }: FooterProps) {
       </div>
 
       <div className="hairline" />
-      <div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-3 px-5 py-6 text-[0.68rem] tracking-[0.16em] text-dim uppercase md:flex-row md:px-8">
+      <div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-3 px-4 py-6 text-[0.62rem] tracking-[0.14em] text-dim uppercase sm:px-5 sm:text-[0.68rem] sm:tracking-[0.16em] md:flex-row md:px-8">
         <p>© {new Date().getFullYear()} A1 Barber Studio. All rights reserved.</p>
         <p>Precision grooming · Personalized style</p>
       </div>

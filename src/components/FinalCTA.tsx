@@ -29,10 +29,10 @@ export function FinalCTA() {
           right on this page. {business.hoursNote.toLowerCase()}, {business.hours}.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button href={BOOK_ANCHOR} className="min-w-[240px]">
+          <Button href={BOOK_ANCHOR} className="w-full sm:w-auto sm:min-w-[240px]">
             Book an Appointment
           </Button>
-          <Button href={business.phoneHref} variant="secondary" className="min-w-[240px]">
+          <Button href={business.phoneHref} variant="secondary" className="w-full sm:w-auto sm:min-w-[240px]">
             {business.phone}
           </Button>
         </div>

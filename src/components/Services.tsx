@@ -11,7 +11,7 @@ export function Services({ onSelect }: ServicesProps) {
   const { ref, visible } = useInView<HTMLElement>(0.06);
 
   return (
-    <section id="services" ref={ref} className="bg-ink px-5 py-24 md:px-8 md:py-32">
+    <section id="services" ref={ref} className="bg-ink px-4 py-16 sm:px-5 sm:py-20 md:px-8 md:py-32">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading

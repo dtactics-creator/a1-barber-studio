@@ -4,7 +4,7 @@
   --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --color-ink: #121212;
+  --color-ink: #020300;
   --color-ink-2: #1a1a1a;
   --color-ink-3: #212121;
   --color-ink-4: #292929;
@@ -22,12 +22,16 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 4.5rem;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  max-width: 100vw;
+  overflow-x: hidden;
   background: var(--color-ink);
   color: var(--color-snow);
   font-family: var(--font-sans);
@@ -47,6 +51,12 @@ body {
 ::selection {
   background: rgb(217 217 217 / 0.25);
   color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 5.5rem;
+  }
 }
 
 :focus-visible {
@@ -254,6 +264,16 @@ body {
 
 .step-panel {
   animation: stepIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Custom Scrollbars */
+.scrollbar-stylish {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollbar-stylish::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 @media (prefers-reduced-motion: reduce) {

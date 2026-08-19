@@ -30,7 +30,7 @@ export function Gallery() {
   }, [active]);
 
   return (
-    <section id="gallery" ref={ref} className="bg-ink px-5 py-24 md:px-8 md:py-32">
+    <section id="gallery" ref={ref} className="bg-ink px-4 py-16 sm:px-5 sm:py-20 md:px-8 md:py-32">
       <div className="mx-auto max-w-[1440px]">
         <SectionHeading
           eyebrow="Gallery"

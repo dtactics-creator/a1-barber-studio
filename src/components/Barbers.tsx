@@ -11,7 +11,7 @@ export function Barbers({ onSelect }: BarbersProps) {
   const { ref, visible } = useInView<HTMLElement>(0.06);
 
   return (
-    <section id="barbers" ref={ref} className="bg-ink-2/60 px-5 py-24 md:px-8 md:py-32">
+    <section id="barbers" ref={ref} className="bg-ink-2/60 px-4 py-16 sm:px-5 sm:py-20 md:px-8 md:py-32">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
@@ -28,7 +28,7 @@ export function Barbers({ onSelect }: BarbersProps) {
               href="#book"
               onClick={() => onSelect(barber.name)}
               className={cn(
-                "reveal group relative block min-h-[480px] overflow-hidden border border-line bg-ink-3 lg:min-h-[560px]",
+                "reveal group relative block min-h-[400px] overflow-hidden border border-line bg-ink-3 sm:min-h-[460px] lg:min-h-[560px]",
                 visible && "visible",
                 `delay-${Math.min(index + 1, 5)}`,
               )}
@@ -42,9 +42,9 @@ export function Barbers({ onSelect }: BarbersProps) {
                 />
               </div>
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,0,0.25)_0%,rgba(2,3,0,0.05)_45%,rgba(2,3,0,0.94)_100%)]" />
-              <div className="relative flex h-full flex-col justify-between p-6">
+              <div className="relative flex h-full flex-col justify-between p-5 sm:p-6">
                 <span className="flex items-center justify-between">
-                  <span className="font-display text-5xl text-white/35">
+                  <span className="font-display text-4xl text-white/35 sm:text-5xl">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="border border-white/20 px-3 py-1.5 text-[0.58rem] font-semibold tracking-[0.22em] text-snow/85 uppercase backdrop-blur-sm transition-colors group-hover:border-silver group-hover:text-white">
